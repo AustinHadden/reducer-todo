@@ -5,17 +5,22 @@ import Todo from "./Todo";
 
 const TodoList = () => {
     const [{todo}, dispatch] = useReducer(reducer, initialState);
-
+console.log(todo);
     const toggleCompleted = id => {
         dispatch({ type: "TOGGLE_COMPLETE", payload: id})
         //console.log(data[0].completed);
     }
+
+    const clearCompleted = () => {
+        dispatch({type: "CLEAR_COMPLETED"})
+    }
+
   return (
     <div className="todo-list">
       {todo.map(item => (
         <Todo key={item.id} item={item} toggleCompleted={toggleCompleted} />
       ))}
-      <button className="clear-btn" >
+      <button className="clear-btn" onClick={clearCompleted} >
         Clear Completed
       </button>
     </div>
