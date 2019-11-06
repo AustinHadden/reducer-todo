@@ -4,7 +4,12 @@ export const initialState =  [
     {
       task: "Learn about reducers",
       completed: false,
-      id: Date.now()
+      id: 1
+    },
+    {
+      task: "Get Ziploc Bags",
+      completed: false,
+      id: 2
     }
   ]
 ;
@@ -17,12 +22,11 @@ export const reducer = (state, action) => {
         completed: false,
         id: Date.now()
       };      
-      return { ...state, newTodo };      
+      return [ ...state, newTodo ];      
     case "TOGGLE_COMPLETE":
-            return {
-                ...state,
-                 state: state.map(todo => {
-                  console.log("Completed Toggle", todo.completed);
+            return [                
+                 ...state.map(todo => {
+                  //console.log("Completed Toggle", todo.completed);
                   if (todo.id === action.payload) {
                     return {
                       ...todo,
@@ -31,7 +35,7 @@ export const reducer = (state, action) => {
                   } else {
                     return todo;
                   }
-                }) };
+                }) ];
                 case "CLEAR_COMPLETED":
                     return state.filter(item => !item.completed);
     default:
