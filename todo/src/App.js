@@ -1,7 +1,7 @@
 import React from "react";
 
 import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
+
 
 import "./App.css";
 
@@ -12,7 +12,7 @@ function App() {
         <h1>Todo List</h1>
         <TodoForm />
       </div>
-      <TodoList />
+      
     </div>
   );
 }

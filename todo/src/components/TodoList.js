@@ -1,23 +1,22 @@
-import React, { useReducer } from 'react';
-import { reducer, initialState } from '../reducers/reducer';
+import React from 'react';
 
 import Todo from "./Todo";
 
-const TodoList = () => {
-    const [{todo}, dispatch] = useReducer(reducer, initialState);
-console.log(todo);
+const TodoList = props => {
+    
+    console.log(props.todo);
     const toggleCompleted = id => {
-        dispatch({ type: "TOGGLE_COMPLETE", payload: id})
+        props.dispatch({ type: "TOGGLE_COMPLETE", payload: id})
         //console.log(data[0].completed);
     }
 
     const clearCompleted = () => {
-        dispatch({type: "CLEAR_COMPLETED"})
+        props.dispatch({type: "CLEAR_COMPLETED"})
     }
 
   return (
     <div className="todo-list">
-      {todo.map(item => (
+      {props.todo.map(item => (
         <Todo key={item.id} item={item} toggleCompleted={toggleCompleted} />
       ))}
       <button className="clear-btn" onClick={clearCompleted} >

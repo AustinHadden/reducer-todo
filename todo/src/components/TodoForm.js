@@ -1,16 +1,18 @@
 import React, { useState, useReducer } from 'react';
 import { reducer, initialState } from '../reducers/reducer';
 
+import TodoList from "./TodoList";
+
 
 const TodoForm = () => {
-    const [{todo}, dispatch] = useReducer(reducer, initialState);
+    const [todo, dispatch] = useReducer(reducer, initialState);
     const [newTodo, setNewTodo] = useState("");
   
     
     const handleSubmit = e => {
         e.preventDefault();
         dispatch({type: "ADD_NEW_TODO", payload: newTodo});
-        console.log('new todo', todo);
+        //console.log('new todo', todo);
         setNewTodo("");
     };
   
@@ -19,6 +21,7 @@ const TodoForm = () => {
       };
     
       return (
+          <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="item">New Todo</label>
           <input
@@ -30,6 +33,9 @@ const TodoForm = () => {
           />
           <button>Add Todo</button>
         </form>
+        
+            <TodoList todo={todo} dispatch={dispatch}/>
+        </div>
       );
     }
   

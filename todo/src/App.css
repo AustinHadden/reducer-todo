@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: #2d2d37;
+  background-color: #2F4F4F;
 }
 
 h1,
@@ -67,7 +67,7 @@ form {
   justify-content: flex-end;
 }
 form > input {
-  background-color: #2d2d37;
+  background-color: #2F4F4F;
   border: 0;
   padding: 6px 0;
   font-size: 1rem;
